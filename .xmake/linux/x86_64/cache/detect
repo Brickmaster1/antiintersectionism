@@ -1,0 +1,52 @@
+{
+    find_programver = {
+        ["/usr/bin/gcc"] = "9.4.0-1ubuntu1"
+    },
+    ["lib.detect.has_flags"] = {
+        ["linux_x86_64_/usr/bin/gcc_9.4.0-1ubuntu1_cxx_cxflags_-m64 -m64_-std=c++20"] = false,
+        ["linux_x86_64_/usr/bin/gcc_9.4.0-1ubuntu1_cxx_cxflags_-m64 -m64_-std=c++2a"] = true,
+        ["linux_x86_64_/usr/bin/gcc_9.4.0-1ubuntu1_cxx__-m64 -m64_-fPIC"] = true
+    },
+    ["detect.tools.gcc.has_cflags"] = {
+        ["/usr/bin/gcc_9.4.0-1ubuntu1"] = {
+            ["-Xlinker"] = true,
+            ["-pass-exit-codes"] = true,
+            ["--target-help"] = true,
+            ["-print-multiarch"] = true,
+            ["-print-search-dirs"] = true,
+            ["-print-libgcc-file-name"] = true,
+            ["-B"] = true,
+            ["-print-multi-directory"] = true,
+            ["-Xassembler"] = true,
+            ["--help"] = true,
+            ["-c"] = true,
+            ["-shared"] = true,
+            ["-dumpspecs"] = true,
+            ["-no-canonical-prefixes"] = true,
+            ["-x"] = true,
+            ["-v"] = true,
+            ["-print-sysroot-headers-suffix"] = true,
+            ["-dumpversion"] = true,
+            ["-Xpreprocessor"] = true,
+            ["-save-temps"] = true,
+            ["--param"] = true,
+            ["-E"] = true,
+            ["-S"] = true,
+            ["-time"] = true,
+            ["-dumpmachine"] = true,
+            ["-o"] = true,
+            ["-pipe"] = true,
+            ["-print-multi-lib"] = true,
+            ["-pie"] = true,
+            ["--version"] = true,
+            ["-print-multi-os-directory"] = true,
+            ["-print-sysroot"] = true
+        }
+    },
+    find_program_cross_arch_x86_64_plat_linux_checktoolcxx = {
+        gcc = "/usr/bin/gcc"
+    },
+    find_program = {
+        ["/usr/bin/gcc"] = "/usr/bin/gcc"
+    }
+}
