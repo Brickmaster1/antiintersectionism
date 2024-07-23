@@ -40,6 +40,7 @@
         "xmake l /home/brickmaster/.vscode-server/extensions/tboox.xmake-vscode-2.3.5/assets/update_intellisense.lua .vscode clangd",
         "xmake l /home/brickmaster/.vscode-server/extensions/tboox.xmake-vscode-2.3.5/assets/explorer.lua",
         "xmake check",
-        "xmake l /home/brickmaster/.vscode-server/extensions/tboox.xmake-vscode-2.3.5/assets/modes.lua"
+        "xmake l /home/brickmaster/.vscode-server/extensions/tboox.xmake-vscode-2.3.5/assets/modes.lua",
+        "xmake l /home/brickmaster/.vscode-server/extensions/tboox.xmake-vscode-2.3.5/assets/plats.lua"
     }
 }
