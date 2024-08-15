@@ -25,8 +25,14 @@ if is_mode("release") then
     set_strip("all")
 end
 
-add_repositories("local-repo /home/brickmaster/projects/ViXeL/xmake-transition/ViXeL/build")
+add_repositories(
+    "vixel-local /home/brickmaster/projects/ViXeL/xmake-transition/ViXeL/build", 
+    "aii-local /home/brickmaster/projects/antiintersectionism/antiintersectionism/build"
+)
 add_requires("vixel", {configs = {mode = "debug"}}, {alias = "ViXeL"})
+add_requires("antiintersectionism", {configs = {mode = "debug"}}, {alias = "aii"})
+
+add_requires("imgui", {configs = {sdl2 = true, opengl3 = true}})
 
 target("test")
     set_kind("binary")
@@ -34,11 +40,13 @@ target("test")
     add_headerfiles("src/**.h")
     add_includedirs("src")
     add_packages(
-        "ViXeL"
+        "ViXeL",
+        "imgui",
+        "aii"
     )
     local output_dir = path.join("$(buildir)", "$(os)", "$(arch)", "$(mode)")
     after_build(function (target)
-        os.cp("resources", target:targetdir())
+        os.cp("$(projectdir)/test/resources", target:targetdir())
     end)
     add_ldflags("-static", "-static-libgcc", "-static-libstdc++", {force = true})
     add_cxxflags("-static", "-static-libgcc", "-static-libstdc++", {force = true})
