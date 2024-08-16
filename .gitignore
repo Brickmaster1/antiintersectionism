@@ -554,4 +554,11 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 
-*.cache
+# Clangd cache files
+**/.cache/
+
+# XMake
+**/.xmake/
+
+# Build
+**/build/

@@ -96,13 +96,7 @@ void TestMain::init() {
 
     _testCube.create();
 
-    IMGUI_CHECKVERSION();
-    ImGui::CreateContext();
-    ImGuiIO& io = ImGui::GetIO();
-    io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
-    
-    ImGui_ImplSDL2_InitForOpenGL(_window, );
-    ImGui_ImplOpenGL3_Init();
+    _window.initImGui();
 
     _window.grabMouse();
 
@@ -115,6 +109,9 @@ void TestMain::init() {
 int TestMain::loop() { while(running) {
     _fpsLimiter.begin();
     
+    _window.createImGuiFrame();
+    ImGui::ShowDemoWindow();
+
     processInput();
 
     _testCamera3d.update();
@@ -232,6 +229,8 @@ void TestMain::processInput() {
 void TestMain::render() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    _testCube.setOrigin({0.0f, 0.0f, 0.0f});
+    _testCube.create();
     _testShaderProgram.bind();
     // WIREFRAME START
     _testCube.render();
@@ -239,7 +238,11 @@ void TestMain::render() {
     glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
     _testCube.setOrigin({0.0f, 4.0f, 0.0f});
+    _testCube.create();
+    _testCube.render();
 
     _testShaderProgram.unbind();
+
+    _window.renderImGui();
     _window.swapBuffer();
 }
